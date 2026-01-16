@@ -1,5 +1,10 @@
 // Vercel Serverless Function for /api/items
-import items from '../../server/data/items.json';
+import { readFileSync } from 'fs';
+import { join } from 'path';
+
+const items = JSON.parse(
+  readFileSync(join(process.cwd(), 'server', 'data', 'items.json'), 'utf8')
+);
 
 export default function handler(req, res) {
   // Enable CORS
