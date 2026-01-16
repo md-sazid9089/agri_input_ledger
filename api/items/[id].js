@@ -1,5 +1,5 @@
 // Vercel Serverless Function for /api/items/[id]
-const items = require('../../server/data/items.json');
+import items from '../../server/data/items.json';
 
 export default function handler(req, res) {
   // Enable CORS
