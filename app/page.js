@@ -7,7 +7,11 @@ import ItemCard from '@/components/ItemCard';
 // Fetch featured items on server
 async function getFeaturedItems() {
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/items`, {
+    const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || process.env.VERCEL_URL 
+      ? `https://${process.env.VERCEL_URL}` 
+      : 'http://localhost:3000';
+    
+    const res = await fetch(`${baseUrl}/api/items`, {
       cache: 'no-store',
     });
     

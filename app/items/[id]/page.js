@@ -8,7 +8,11 @@ import { notFound } from 'next/navigation';
 // Fetch single item from API
 async function getItem(id) {
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/items/${id}`, {
+    const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || process.env.VERCEL_URL 
+      ? `https://${process.env.VERCEL_URL}` 
+      : 'http://localhost:3000';
+    
+    const res = await fetch(`${baseUrl}/api/items/${id}`, {
       cache: 'no-store',
     });
     
