@@ -1,6 +1,7 @@
 {
   "name": "agriinput-ledger",
   "version": "1.0.0",
+  "type": "module",
   "description": "AgriInput Ledger - A verified agricultural inputs catalog supporting SDG 2 (Zero Hunger)",
   "scripts": {
     "dev": "next dev",
